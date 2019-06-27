@@ -63,7 +63,7 @@ func EncodeNumber(i interface{}) []byte {
 
 func EncodeVector(data []byte) []byte {
 	// TODO - verify order in output.
-	size := EncodeInt32(uint32(len(data)))
+	size := EncodeI32(uint32(len(data)))
 	return append(size[:], data[:]...)
 }
 
@@ -71,6 +71,6 @@ func main() {
 	var a = 0x0F
 	var b = uint32(32)
 	fmt.Println(EncodeNumber(uint32(32)))
-	fmt.Printf("%x", EncodeInt32(b))
+	fmt.Printf("%x", EncodeI32(b))
 	fmt.Printf("Go wasm bin {%d}\n", a)
 }
